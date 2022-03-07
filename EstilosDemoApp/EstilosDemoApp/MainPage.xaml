@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EstilosDemoApp.MainPage">
+
+    <!--
+        ** ESTILOS IMPLICITOS **
+        Afectan a todos los componentes por igual dentro de la pagina, el que es definido en TargetType
+        y sobreescribe el estilo global si existe
+    -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="DarkRed"/>
+                <Setter Property="TextColor" Value="White" />
+            </Style>-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <Button
+            Text="Estilízame!"
+            HeightRequest="200"
+        />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <!--
+                este diccionario afecta solo a los controles que se encuentran dentro del componente padre
+            -->
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="DarkGreen"/>
+                        <Setter Property="TextColor" Value="White" />
+                    </Style>
+                    <!--
+                        ** ESTILO EXPLICITO **
+                        se asocia una key para que pueda ser utilizado en el componente que se quiere modificar, mediante el atributo "Style"
+                    -->
+                    <Style TargetType="Button" x:Key="btnGreen">
+                        <Setter Property="BackgroundColor" Value="MediumSeaGreen"/>
+                        <Setter Property="TextColor" Value="White" />
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
+
+            <Button Text="Botón 1" Style="{StaticResource btnGreen}" />
+            <Button Text="Botón 2"/>
+            <Button Text="Botón 3"/>
+            <Button Text="Botón 4" Style="{StaticResource btnGlobalBlue}"/>
+        </StackLayout>
+
+        <!--
+            ** ESTILOS DE DISPOSITIVOS **
+            son estilos que vienen predefinidos para cada plataforma para controles Label
+        -->
+        <StackLayout Padding="20">
+            <Label Text="Title style" Style="{DynamicResource TitleStyle}" />
+            <Label Text="Subtitle text style" Style="{DynamicResource SubtitleTextStyle}" />
+            <Label Text="Body style" Style="{DynamicResource BodyStyle}" />
+            <Label Text="Caption style" Style="{DynamicResource CaptionStyle}" />
+            <Label Text="List item detail text style" Style="{DynamicResource ListItemDetailTextStyle}" />
+            <Label Text="List item text style" Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="No style" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

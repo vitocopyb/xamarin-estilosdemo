@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EstilosDemoApp.TriggerStylePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Style.Triggers>
+                    <Trigger
+                        TargetType="Entry"
+                        Property="IsFocused"
+                        Value="True"
+                    >
+                        <Setter Property="BackgroundColor" Value="DarkGreen" />
+                        <Setter Property="TextColor" Value="Yellow" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Custom">
+                <!--<Entry.Triggers>
+                    <Trigger
+                        TargetType="Entry"
+                        Property="IsFocused"
+                        Value="True"
+                    >
+                        <Setter Property="TextColor" Value="Blue" />
+                        <Setter Property="BackgroundColor" Value="NavajoWhite" />
+                    </Trigger>
+                </Entry.Triggers>-->
+            </Entry>
+            <Entry Placeholder="General 1" />
+            <Entry Placeholder="General 2" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
